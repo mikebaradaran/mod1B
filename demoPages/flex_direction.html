@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title
+           ></title>
+    <style>
+        .flexRows {
+            display: flex;
+            flex-direction: row ;
+        }
+        .flexColumns {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flexRowsFlexStart {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .flexRowsCentre {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .flexRowsSpacedBetween {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .flexRowsSpacedAround {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .container{
+            background-color:darkblue;
+            margin-bottom:1rem;
+        }
+        div div{
+            border:1px solid brown;
+            background-color:lightcyan;
+            padding: 0.5em;
+        } 
+    </style>
+</head>
+<body>
+    <div class="container flexRows">
+        <div>Flex Rows</div>
+        <div>Flex Rows</div>
+        <div>Flex Rows</div>
+    </div>
+    <div class="container flexColumns">
+        <div>Flex Columns</div>
+        <div>Flex Columns</div>
+        <div>Flex Columns</div>
+    </div>
+    <div class="container flexRowsCentre">
+        <div>Flex Rows Centre</div>
+        <div>Flex Rows Centre</div>
+        <div>Flex Rows Centre</div>
+    </div>
+    <div class="container flexRowsSpacedBetween">
+        <div>Flex Rows Spaced Between</div>
+        <div>Flex Rows Spaced Between</div>
+        <div>Flex Rows Spaced Between</div>
+    </div>
+    <div class="container flexRowsSpacedAround">
+        <div>Flex Rows Spaced Around</div>
+        <div>Flex Rows Spaced Around</div>
+        <div>Flex Rows Spaced Around</div>
+    </div>
+</body>
+</html>

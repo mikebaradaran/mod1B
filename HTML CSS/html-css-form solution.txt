@@ -1,0 +1,148 @@
+________________________________________
+Lab 1 - Sample Solutions
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Join the Club (Layout Only)</title>
+  <link rel="stylesheet" href="lab1-style.css" />
+</head>
+<body>
+  <div class="join-page">
+    <h1>🚀 Join the Tech Explorers Club</h1>
+
+    <div class="section">
+      <div class="label">Full Name:</div>
+      <input type="text" placeholder="Enter your name" />
+    </div>
+
+    <div class="section">
+      <div class="label">Email:</div>
+      <input type="email" placeholder="you@example.com" />
+    </div>
+
+    <div class="section age-group">
+      <div class="label">Age:</div>
+      <input type="number" min="10" max="100" />
+      <span class="unit">years</span>
+    </div>
+
+    <div class="section">
+      <div class="label">User Type:</div>
+      <label><input type="radio" name="role" /> Student</label>
+      <label><input type="radio" name="role" /> Professional</label>
+      <label><input type="radio" name="role" /> Hobbyist</label>
+    </div>
+
+    <div class="section">
+      <div class="label">Interests:</div>
+      <label><input type="checkbox" /> AI</label>
+      <label><input type="checkbox" /> Web</label>
+      <label><input type="checkbox" /> Cybersecurity</label>
+    </div>
+
+    <div class="section">
+      <div class="label">Favorite Language:</div>
+      <select>
+        <option>Python</option>
+        <option>JavaScript</option>
+        <option>Java</option>
+        <option>C#</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <div class="label">Why do you want to join?</div>
+      <textarea rows="4" cols="40"></textarea>
+    </div>
+
+    <button>Submit</button>
+  </div>
+</body>
+</html>
+________________________________________
+lab1-style.css
+body {
+  font-family: sans-serif;
+  background: #eef2f3;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.join-page {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.age-group {
+  position: relative;
+}
+
+.unit {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  color: #888;
+}
+
+button {
+  width: 100%;
+  background-color: #0074d9;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+________________________________________
+lab2-form.html (with real <form>)
+Same as above, but wrap the fields in:
+<form action="#" method="post">
+  <fieldset>
+    <legend>Personal Info</legend>
+    ...
+  </fieldset>
+  <fieldset>
+    <legend>Preferences</legend>
+    ...
+  </fieldset>
+  <fieldset>
+    <legend>Why Join?</legend>
+    ...
+  </fieldset>
+  <button type="submit">Submit</button>
+</form>
+________________________________________
+Would you like this packaged as a zip with files, or turned into downloadable CodePen or JSFiddle templates?

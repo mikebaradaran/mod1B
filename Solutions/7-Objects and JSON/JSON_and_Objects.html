@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List with Classes & Storage</title>
+    <style>
+        li {
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .high {
+            background-color: #ffcccc;
+        }
+
+        .medium {
+            background-color: #fff3cd;
+        }
+
+        .low {
+            background-color: #d4edda;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .task-text {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body onload="loadItems()">
+    <h2>Task List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <select id="priorityInput">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="saveItems()">Save Tasks</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        // localStorage.setItem("taskItems") = []; // clear tasks
+        // localStorage.clear();   // clear all
+        // 1. Task class
+        class Task {
+            constructor(text, priority, completed = false) {
+                this.text = text;
+                this.priority = priority;
+                this.completed = completed;
+            }
+        }
+
+        // 2. tasks[] array
+        const tasks = [];
+
+        // 3. Function to add task
+        function addTask(textFromLoad = null, priorityFromLoad = null, completedFromLoad = false) {
+            const taskText = textFromLoad || document.getElementById("taskInput").value.trim();
+            const priority = priorityFromLoad || document.getElementById("priorityInput").value;
+
+            if (taskText === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            // Create Task object and push to array
+            const newTask = new Task(taskText, priority, completedFromLoad);
+            tasks.push(newTask);
+
+            // Render task in DOM
+            renderTask(newTask);
+
+            if (!textFromLoad) {
+                document.getElementById("taskInput").value = "";
+            }
+        }
+
+        // Helper function to create and display task item
+        function renderTask(task) {
+            const li = document.createElement("li");
+            li.classList.add(task.priority);
+
+            const span = document.createElement("span");
+            span.className = "task-text";
+            span.textContent = `${task.text} — [${task.completed ? "Completed" : "Not Completed"}]`;
+            if (task.completed) {
+                span.classList.add("completed");
+            }
+
+            const completeBtn = document.createElement("button");
+            completeBtn.textContent = "Mark as Completed";
+            completeBtn.onclick = function () {
+                task.completed = true;
+                span.textContent = `${task.text} — [Completed]`;
+                span.classList.add("completed");
+                saveItems(); // update storage when status changes
+            };
+
+            li.appendChild(span);
+            li.appendChild(completeBtn);
+            document.getElementById("taskList").appendChild(li);
+        }
+
+        // 4. Save tasks to localStorage
+        function saveItems() {
+            localStorage.setItem("taskItems", JSON.stringify(tasks));
+            alert("Tasks saved!");
+        }
+
+        // 5. Load tasks from localStorage on page load
+        function loadItems() {
+            const stored = localStorage.getItem("taskItems");
+            if (stored) {
+                const loadedTasks = JSON.parse(stored);
+                loadedTasks.forEach(t => addTask(t.text, t.priority, t.completed));
+            }
+        }
+    </script>
+</body>
+</html>

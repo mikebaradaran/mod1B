@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Grid</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .item {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Responsive Grid with auto-fit and minmax</h2>
+
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </div>
+
+</body>
+</html>

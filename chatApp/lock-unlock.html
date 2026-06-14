@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lock Toggle Demo</title>
+</head>
+<body>
+  <lock-toggle locked></lock-toggle>
+  <div id="lockStatus"></div>
+  <script type="module" src="./lock-unlock.js"></script>
+
+  <script>
+    const toggle = document.querySelector('lock-toggle');
+
+    toggle.addEventListener('toggle', e => {
+      document.getElementById('lockStatus').innerText = 'Locked state changed:' + e.detail.locked;
+    });
+  </script>
+</body>
+</html>

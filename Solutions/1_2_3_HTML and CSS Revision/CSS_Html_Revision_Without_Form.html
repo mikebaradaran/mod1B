@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join QA Club</title>
+    <link rel="stylesheet" href="CSS_Html_Revision.css" />
+</head>
+<body>
+    <div class="form-container">
+        <h1>🎉 Join the QA Club</h1>
+        <h2>👤 Personal Information</h2>
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="10" max="99">
+        <span class="age-label">years</span><br><br>
+
+        <h2>💻 Your Preferences</h2>
+        <label for="language">Favorite Language:</label><br>
+        <select id="language" name="language">
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>C#</option>
+        </select><br><br>
+
+        <p>User Type:</p>
+        <label><input type="radio" name="usertype" value="student"> Student</label>
+        <label><input type="radio" name="usertype" value="professional"> Professional</label>
+        <label><input type="radio" name="usertype" value="hobbyist"> Hobbyist</label><br><br>
+
+        <p>Interests:</p>
+        <label><input type="checkbox" name="interests" value="AI"> AI</label>
+        <label><input type="checkbox" name="interests" value="Web"> Web Dev</label>
+        <label><input type="checkbox" name="interests" value="Cyber"> Cybersecurity</label>
+        <label><input type="checkbox" name="interests" value="Gaming"> Gaming</label><br><br>
+
+        <H2>📝 Tell Us More</H2>
+        <label for="bio">Why do you want to join?</label><br>
+        <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+
+        <button>Join Now</button>
+    </div>
+</body>
+</html>

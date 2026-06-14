@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<ol id="names"></ol>
+
+<script>
+    const students = ["Bayley", "Joshua", "Robert", "Joanna", "Paul", "Calum"];
+
+    let olNames = document.getElementById('names');
+
+    for (let name of students) {
+        let li = document.createElement('li');
+        li.innerText = name;
+        olNames.appendChild(li);
+    };
+</script>
+
+</body>
+</html>

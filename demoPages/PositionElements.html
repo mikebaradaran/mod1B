@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>QA Training</title>
+    <style>
+        .box {
+            width: 220px;
+            height: 120px;
+            color: white;
+            padding-left: 5px;
+        }
+
+        .wrapper {
+            position: relative;
+            background: cyan;
+            height: 2300px;
+            margin: 100px;
+        }
+
+        .relative-box {
+            position: relative;
+            top: 50px;
+            left: 20px;
+            background: darkred;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 10px;
+            right: 90px;
+            background: darkblue;
+        }
+
+        .fixed-box {
+            position: fixed;
+            top: 20px;
+            left: 200px;
+            background: darkgreen;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box fixed-box">
+        <pre>
+position: fixed;
+top: 20px;
+left: 200px;
+z-index:1;
+</pre>
+<b>Scroll to see how fixed I am!</b>
+    </div>
+    <div class="box absolute-box">
+<pre>
+position: absolute;
+top: 50px;
+right: 90px;
+</pre>
+    </div>
+
+    <div class="wrapper">
+        <div class="box relative-box">
+            <pre>
+position: relative;
+top: 50px;
+left: 20px;
+</pre>
+        </div>
+    </div>
+</body>
+
+</html>

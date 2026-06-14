@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List with Completion Button</title>
+    <style>
+        li {
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .high {
+            background-color: #ffcccc;
+        }
+
+        .medium {
+            background-color: #fff3cd;
+        }
+
+        .low {
+            background-color: #d4edda;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .task-text {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Task List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <select id="statusInput">
+        <option value="Not started">Not started</option>
+        <option value="In progress">In progress</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <select id="priorityInput">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            const task = document.getElementById("taskInput").value.trim();
+            const status = document.getElementById("statusInput").value;
+            const priority = document.getElementById("priorityInput").value;
+
+            if (task === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            const li = document.createElement("li");
+            li.classList.add(priority);
+
+            const span = document.createElement("span");
+            span.className = "task-text";
+            span.textContent = `${task} — [${status}]`;
+
+            const completeBtn = document.createElement("button");
+            completeBtn.textContent = "Mark as Completed";
+            completeBtn.onclick = function () {
+                span.textContent = `${task} — [Completed]`;
+                span.classList.add("completed");
+            };
+
+            li.appendChild(span);
+            li.appendChild(completeBtn);
+            document.getElementById("taskList").appendChild(li);
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+</body>
+</html>

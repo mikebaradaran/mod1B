@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div id="tableContainer"></div>
+
+    <script>
+        function generateMultiplicationTable() {
+            let html = "<table border='1' cellpadding='5' cellspacing='0'>";
+
+            for (let i = 1; i <= 10; i++) {
+                html += "<tr>";
+                for (let j = 1; j <= 10; j++) {
+                    html += `<td>${i * j}</td>`;
+                }
+                html += "</tr>";
+            }
+
+            html += "</table>";
+
+            document.getElementById("tableContainer").innerHTML = html;
+        }
+
+        // Create a 10x10 multiplication table on page load
+        generateMultiplicationTable();
+    </script>
+</body>
+</html>

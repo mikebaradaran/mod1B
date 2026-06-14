@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+
+        .box {
+            width: 5em;
+            background: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            height:10em;
+        }
+
+        .item {
+            /*flex: 1;*/
+            order: 1;           /* All element have order of zero. 1 puts it at the end */
+            align-self: center; /* Align vertically */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">A</div>
+        <div class="box item">B</div>
+        <div class="box">C</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List with Status & Priority</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .high {
+            background-color: #ffcccc;
+            font-weight: bold;
+        }
+
+        .medium {
+            background-color: #fff3cd;
+        }
+
+        .low {
+            background-color: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <h2>Task List</h2>
+
+    <!-- Task description -->
+    <input type="text" id="taskInput" placeholder="Enter a task">
+
+    <!-- Task status dropdown -->
+    <select id="statusInput">
+        <option value="Not started">Not started</option>
+        <option value="In progress">In progress</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <!-- Priority dropdown -->
+    <select id="priorityInput">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+    </select>
+
+    <!-- Add task button -->
+    <button onclick="addTask()">Add Task</button>
+
+    <!-- Task list -->
+    <ul id="taskList"></ul>
+
+    <script>
+    function addTask() {
+      const task = document.getElementById("taskInput").value.trim();
+      const status = document.getElementById("statusInput").value;
+      const priority = document.getElementById("priorityInput").value;
+
+      if (task !== "") {
+        // Create list item
+        const li = document.createElement("li");
+
+        // Add text with status
+        li.textContent = `${task} — [${status}]`;
+
+        // Apply priority style
+        li.classList.add(priority);
+
+        // Append to list
+        document.getElementById("taskList").appendChild(li);
+
+        // Clear input
+        document.getElementById("taskInput").value = "";
+      } else {
+        alert("Please enter a task description.");
+      }
+    }
+    </script>
+</body>
+</html>

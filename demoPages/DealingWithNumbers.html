@@ -1,0 +1,17 @@
+﻿<html>
+<head>
+    <script>
+        function getAndSet() {
+            let ageStr = document.getElementById("userAge").value;
+            let age = parseInt(ageStr);
+
+            document.getElementById("message").textContent = "Next year, you'll be " + (age+1);        	}
+    </script>
+</head>
+<body>
+    <input id="userAge" value="25" />
+    <div id="message"></div>
+
+    <button onclick="getAndSet()">OK</button>
+</body>
+</html>

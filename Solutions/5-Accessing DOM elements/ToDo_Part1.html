@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple ToDo List</title>
+</head>
+<body>
+    <h2>My ToDo List</h2>
+
+    <!-- a. Text input for task description -->
+    <input type="text" id="taskInput" placeholder="Enter a task">
+
+    <!-- b. Add Task button -->
+    <button onclick="addTask()">Add Task</button>
+
+    <!-- Unordered list to hold tasks -->
+    <ul id="taskList"></ul>
+
+    <script>
+    function addTask() {
+      // Read input value
+      const taskDescription = document.getElementById("taskInput").value.trim();
+
+      if (taskDescription !== "") {
+        // Create new <li> element
+        const li = document.createElement("li");
+
+        // Set text content to the input value
+        li.textContent = taskDescription;
+
+        // Add the <li> to the end of the <ul>
+        document.getElementById("taskList").appendChild(li);
+
+        // Clear input field
+        document.getElementById("taskInput").value = "";
+      } else {
+        alert("Please enter a task.");
+      }
+    }
+    </script>
+</body>
+</html>

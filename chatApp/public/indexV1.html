@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat App</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #messages { list-style: none; padding: 0; }
+    #messages li { padding: 5px 10px; }
+  </style>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <input id="username" placeholder="Your name"/>
+  <input id="message" autocomplete="off" placeholder="Type a message"/>
+  <button id="send">Send</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const messages = document.getElementById('messages');
+    const messageInput = document.getElementById('message');
+    const usernameInput = document.getElementById('username');
+    const sendBtn = document.getElementById('send');
+
+    socket.on('load messages', (msgs) => {
+      msgs.forEach(msg => addMessage(msg));
+    });
+
+    socket.on('chat message', (msg) => {
+      addMessage(msg);
+    });
+
+    sendBtn.addEventListener('click', () => {
+      const msg = {
+        username: usernameInput.value || 'Anonymous',
+        message: messageInput.value
+      };
+      socket.emit('chat message', msg);
+      messageInput.value = '';
+    });
+
+    function addMessage(msg) {
+      const li = document.createElement('li');
+      li.textContent = `[${new Date(msg.timestamp).toLocaleTimeString()}] ${msg.username}: ${msg.message}`;
+      messages.appendChild(li);
+    }
+  </script>
+</body>
+</html>

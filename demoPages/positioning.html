@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .container {
+            position: relative;
+            height: 300px;
+            border: 3px groove gray;
+        }
+
+        .static {
+            position: static;
+            background-color: cyan;
+        }
+
+        .relative {
+            position: relative;
+            left: 40px;
+            top: 20px;
+            background-color: orange;
+        }
+
+        .absolute {
+            position: absolute;
+            right: 3em;
+            top: 5em;
+            background-color: green;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            background-color: lightblue;
+        }
+
+        div {
+            width: 5em;
+            height: 2em;
+            padding:1em;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h3>Resize the browser (width, height) to see how the boxes reposition themselves.</h3>
+        <div class="static">static</div>
+        <div class="relative">relative</div>
+        <div class="absolute">absolute</div>
+        <div class="fixed">fixed</div>
+
+</body>
+</html>

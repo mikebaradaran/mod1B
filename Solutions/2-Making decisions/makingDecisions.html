@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <button onclick="checkLogin()">Login</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+            // display an error message
+            //      if the username's length is less than 2
+            if (username) {
+                if (username.length < 2) {
+                    message.textContent = "Username is too short!";
+                    return;
+                }
+            } else {
+                message.textContent = "Username is empty!";
+                return;
+            }
+            //      if the password's length is less than 8
+            if (password) {
+                if (password.length < 8) {
+                    message.textContent = "password is too short!";
+                    return;
+                }
+            } else {
+                message.textContent = "Password is empty!";
+                return;
+            }
+            //      else display a success message
+            message.textContent = "Success!";
+
+    }
+    </script>
+</body>
+</html>
+
